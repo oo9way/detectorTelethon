@@ -7,7 +7,7 @@ word_list = ["odam", "ketadigan", "kishi", "кетадиган", "pochta", "posh
              "kerak", "кетиш", "керак", "ketishim", "ketmoqchi", "кетмоқчи", "кетмокчи" "edik", "едик", "едим",
              "кетишим", "borish", "borishim", "боришим", "бориш", "пучта", "puchta", "po'chta", "powta", "po'wta"]
 
-black_list = ["юрамиз", "юраман", "оламиз", "оламан", "yuramiz", "yuraman", "olamiz", "olaman"]
+black_list = ["юрамиз", "юраман", "yozish", "qo'shishingiz", "guruhda", "оламиз", "оламан", "yuramiz", "yuraman", "olamiz", "olaman"]
 
 client = TelegramClient('telethon', api_id, api_hash)
 
