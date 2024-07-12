@@ -7,6 +7,8 @@ word_list = ["odam", "pochta", "bor", "одам", "почта", "бор", "ketis
              "кетишим", "borish", "borishim", "боришим", "бориш"
                                                          "пучта", "puchta", "po'chta", "powta", "po'wta"]
 
+black_list = ["юрамиз", "юраман", "оламиз", "оламан", "yuramiz", "yuraman", "olamiz", "olaman"]
+
 client = TelegramClient('telethon', api_id, api_hash)
 
 
@@ -16,12 +18,20 @@ async def handle_message(event):
     message_text = event.message.message
 
     min_matches = 0
+    black_list_matches = 0
     for text in message_text.split(" "):
         if str(text).lower() in word_list:
             min_matches += 1
 
+        if str(text).lower() in black_list:
+            black_list_matches += 1
+
+    if black_list_matches != 0:
+        return
+    
     if not min_matches >= 2:
         return
+
     chat_title = event.chat.title if event.chat else "Unknown Group"
     user_profile_link = f"[Client](tg://user?id={user_id})"
 
