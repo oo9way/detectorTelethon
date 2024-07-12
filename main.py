@@ -3,7 +3,7 @@ from telethon import TelegramClient, events
 api_id = 8184910
 api_hash = "df0a97c7b6d2163610d94c01024e4107"
 
-word_list = ["odam", "ketadigan", "кетадиган", "pochta", "poshta", "пошта", "bor", "одам", "почта", "бор", "ketish", 
+word_list = ["odam", "ketadigan", "kishi", "кетадиган", "pochta", "poshta", "пошта", "bor", "одам", "почта", "бор", "ketish", 
              "kerak", "кетиш", "керак", "ketishim", "ketmoqchi", "кетмоқчи", "кетмокчи" "edik", "едик", "едим",
              "кетишим", "borish", "borishim", "боришим", "бориш", "пучта", "puchta", "po'chta", "powta", "po'wta"]
 
