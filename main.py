@@ -1,13 +1,8 @@
 from telethon import TelegramClient, events
+from checker import check
 
 api_id = 8184910
 api_hash = "df0a97c7b6d2163610d94c01024e4107"
-
-word_list = ["odam", "ketadigan", "kishi", "кетадиган", "pochta", "poshta", "пошта", "bor", "одам", "почта", "бор", "ketish", 
-             "kerak", "кетиш", "керак", "ketishim", "ketmoqchi", "кетмоқчи", "кетмокчи" "edik", "едик", "едим",
-             "кетишим", "borish", "borishim", "боришим", "бориш", "пучта", "puchta", "po'chta", "powta", "po'wta"]
-
-black_list = ["юрамиз", "юраман", "yozish", "qo'shishingiz", "guruhda", "оламиз", "оламан", "yuramiz", "yuraman", "olamiz", "olaman"]
 
 client = TelegramClient('telethon', api_id, api_hash)
 
@@ -16,24 +11,14 @@ client = TelegramClient('telethon', api_id, api_hash)
 async def handle_message(event):
     user_id = event.sender_id
     message_text = event.message.message
+    sender = await event.get_sender()
+    first_name = sender.first_name if sender.first_name else "Mijoz"
 
-    min_matches = 0
-    black_list_matches = 0
-    for text in message_text.split(" "):
-        if str(text).lower() in word_list:
-            min_matches += 1
-
-        if str(text).lower() in black_list:
-            black_list_matches += 1
-
-    if black_list_matches != 0:
-        return
-    
-    if not min_matches >= 2:
+    if not check(message_text):
         return
 
     chat_title = event.chat.title if event.chat else "Unknown Group"
-    user_profile_link = f"[Client](tg://user?id={user_id})"
+    user_profile_link = f"[{first_name}](tg://user?id={user_id})"
 
     formatted_message = (
         "**Yangi buyurtma**\n\n"
