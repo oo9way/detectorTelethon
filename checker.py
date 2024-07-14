@@ -8,11 +8,12 @@ def check(s):
                  "кетишим", "borish", "borishim", "боришим", "бориш", "пучта", "puchta", "po'chta", "powta", "po'wta"]
 
     black_list = ["юрамиз", "юраман", "yozish", "qo'shishingiz", "guruhda", "оламиз", "оламан", "yuramiz", "yuraman",
-                  "olamiz", "olaman"]
+                  "olamiz", "olaman", "olamiza", "olamz", "оламиза", "yuramz", "юрамз", "оламз", "юряпмиз", "yuryapmiz"
+                  "йурамиз", "чикиб", "чикамиза", "kam", "кам"]
 
     min_matches = []
     black_list_matches = []
-    for text in s.split(" "):
+    for text in re.split(r'[ ,.\n]', s):
         text = re.sub(r'[^a-zA-ZА-Яа-я]', '', text)
 
         if str(text).lower() in word_list:
@@ -26,5 +27,4 @@ def check(s):
 
     if not len(min_matches) >= 2:
         return False
-
     return True

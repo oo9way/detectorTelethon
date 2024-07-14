@@ -19,12 +19,14 @@ async def handle_message(event):
 
     chat_title = event.chat.title if event.chat else "Unknown Group"
     user_profile_link = f"[{first_name}](tg://user?id={user_id})"
+    user_profile_link_with_id = f"[{user_id}](tg://user?id={user_id})"
 
     formatted_message = (
         "**Yangi buyurtma**\n\n"
         f"**Guruh**: [{chat_title}](tg://resolve?domain={event.chat.username})\n"
         f"**Mijoz**: {user_profile_link}\n"
-        f"**Xabar**: {message_text}"
+        f"**Xabar**: {message_text}\n"
+        f"**Aloqa**: {user_profile_link_with_id}\n"
     )
 
     await client.send_message(-1002230931332, formatted_message, parse_mode='markdown')
