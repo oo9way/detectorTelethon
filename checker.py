@@ -9,10 +9,14 @@ def check(s):
 
     black_list = ["юрамиз", "юраман", "yozish", "qo'shishingiz", "guruhda", "оламиз", "оламан", "yuramiz", "yuraman",
                   "olamiz", "olaman", "olamiza", "olamz", "оламиза", "yuramz", "юрамз", "оламз", "юряпмиз", "yuryapmiz"
-                  "йурамиз", "чикиб", "чикамиза", "kam", "кам"]
+                  "йурамиз", "чикиб", "чикамиза", "kam", "кам", "олмиз", "olmiz", "кетаман", "ketaman", "кетамиз", "ketamiz", "qo'shamiz", "qo'shaman", "premium"]
 
     min_matches = []
     black_list_matches = []
+
+    if len(s) > 100:
+        return False
+
     for text in re.split(r'[ ,.\n]', s):
         text = re.sub(r'[^a-zA-ZА-Яа-я]', '', text)
 
@@ -25,6 +29,6 @@ def check(s):
     if len(black_list_matches) != 0:
         return False
 
-    if not len(min_matches) >= 2:
+    if not len(set(min_matches)) >= 2:
         return False
     return True
