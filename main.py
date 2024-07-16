@@ -22,11 +22,11 @@ async def handle_message(event):
     user_profile_link_with_id = f"[{user_id}](tg://user?id={user_id})"
 
     formatted_message = (
-        "**Yangi buyurtma**\n\n"
-        f"**Guruh**: [{chat_title}](tg://resolve?domain={event.chat.username})\n"
-        f"**Mijoz**: {user_profile_link}\n"
+        "**Yangi buyurtma guruhdan:**\n"
+        f"[{chat_title}](tg://resolve?domain={event.chat.username})\n\n"
         f"**Xabar**: {message_text}\n"
-        f"**Aloqa**: {user_profile_link_with_id}\n"
+        f"**Yuboruvchi **: {user_profile_link}\n"
+        f"**Aloqaga chiqish**: {user_profile_link_with_id}\n"
     )
 
     await client.send_message(-1002230931332, formatted_message, parse_mode='markdown')
