@@ -2,7 +2,7 @@ import re
 
 
 def check(s):
-    word_list = ["одам бор", "почта бор", 'odam bor', 'pochta bor', 'кетиш керак', "ketish kerak"]
+    word_list = ["одам бор", "почта бор", 'odam bor', 'pochta bor', 'кетиш керак', "ketish kerak", "ketishim kerak"]
 
     if len(s) > 100:
         return False
@@ -13,6 +13,8 @@ def check(s):
         text = re.sub(r'[^a-zA-ZА-Яа-я]', '', text)
 
         cleaned_text += text.lower() + " "
+
+    print(cleaned_text)
 
     for word in word_list:
         if word in cleaned_text:
