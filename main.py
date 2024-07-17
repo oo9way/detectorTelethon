@@ -19,7 +19,7 @@ async def handle_message(event):
 
     chat_title = event.chat.title if event.chat else "Unknown Group"
     user_profile_link = f"[{first_name}](tg://user?id={user_id})"
-    user_profile_link_with_id = f"[{user_id}](tg://user?id={user_id})"
+    user_profile_link_with_id = f"[havola](tg://user?id={user_id})"
 
     formatted_message = (
         "**Yangi buyurtma guruhdan:**\n"
