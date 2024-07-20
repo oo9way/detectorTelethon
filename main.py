@@ -24,12 +24,13 @@ async def handle_message(event):
     formatted_message = (
         "**Yangi buyurtma guruhdan:**\n"
         f"[{chat_title}](tg://resolve?domain={event.chat.username})\n\n"
-        f"**Xabar**: {message_text}\n"
-        f"**Yuboruvchi **: {user_profile_link}\n"
+        f"**Xabar**: {message_text}\n\n"
+        f"**Yuboruvchi **: {user_profile_link}\n\n"
         f"**Aloqaga chiqish**: {user_profile_link_with_id}\n"
     )
 
     await client.send_message(-1002230931332, formatted_message, parse_mode='markdown')
+    await client.send_message(-4220624460, formatted_message, parse_mode='markdown')
 
 
 async def main():
