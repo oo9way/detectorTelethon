@@ -30,7 +30,7 @@ async def handle_message(event):
     )
 
     await client.send_message(-1002230931332, formatted_message, parse_mode='markdown')
-    await client.send_message(-4220624460, formatted_message, parse_mode='markdown')
+    await client.send_message(-1002184517372, formatted_message, parse_mode='markdown')
 
 
 async def main():
